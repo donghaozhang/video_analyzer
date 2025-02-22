@@ -1,0 +1,11 @@
+name: video-analysis
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - requests
+  - pip:
+    - google-generativeai
+    - python-dotenv 
