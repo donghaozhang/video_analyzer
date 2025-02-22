@@ -23,7 +23,7 @@ class VideoAnalyzer:
         self.api_key = api_key
         # Configure the Gemini API
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        self.model = genai.GenerativeModel('gemini-2.0-flash')
 
     def analyze_video(self, video_path, prompt):
         """Analyze video using Gemini API."""
@@ -79,7 +79,8 @@ def main():
     try:
         # Using 7news.mp4 from the current directory
         video_path = "./7news.mp4"
-        prompt = "Please analyze this news video and provide a detailed summary of the main story, including key points and any significant quotes or statements."
+        # prompt = "Please analyze this news video and provide a detailed summary of the main story, including key points and any significant quotes or statements."
+        prompt = "Output the emotion of people in the video."
         
         result = analyzer.analyze_video(video_path, prompt)
         print("\nAnalysis Result:")
