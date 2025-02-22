@@ -1,7 +1,18 @@
+# Environment and Python
 .env
-*.mp4
-environment.yml.lock
 __pycache__/
 *.pyc
 .python-version
-.conda/ 
+.conda/
+
+# Media files
+*.mp4
+*.jpg
+*.jpeg
+*.png
+*.gif
+/images/
+analyzed_*.jpg
+
+# Environment files
+environment.yml.lock 
