@@ -98,4 +98,6 @@ The tools include comprehensive error handling for:
 5. Create a Pull Request
 
 ## License
-[Add your license information here]
+This project is licensed under the Apache License, Version 2.0 - see the [LICENSE](LICENSE) file for details.
+
+Copyright 2024 Google LLC
