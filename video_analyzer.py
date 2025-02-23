@@ -78,9 +78,10 @@ def main():
 
     try:
         # Using 7news.mp4 from the current directory
-        video_path = "./7news.mp4"
+        # video_path = "./7news.mp4"
+        video_path = "./WeChat_20250223000449.mp4"
         # prompt = "Please analyze this news video and provide a detailed summary of the main story, including key points and any significant quotes or statements."
-        prompt = "Output the emotion of people in the video."
+        prompt = "Output the emotion of person labelled by the segmentation mask in the video."
         
         result = analyzer.analyze_video(video_path, prompt)
         print("\nAnalysis Result:")

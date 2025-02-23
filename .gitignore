@@ -12,6 +12,7 @@ __pycache__/
 *.png
 *.gif
 /images/
+/videos/
 analyzed_*.jpg
 
 # Environment files
