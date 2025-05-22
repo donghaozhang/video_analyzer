@@ -21,6 +21,15 @@ from pathlib import Path
 from dotenv import load_dotenv
 import argparse
 
+# Load environment variables from .env file
+# Look for .env file in parent directory if it's not in current directory
+load_dotenv()  # First try the current directory
+if not os.getenv("GEMINI_API_KEY"):
+    # Try parent directory
+    parent_env_path = Path(__file__).parent.parent / '.env'
+    if parent_env_path.exists():
+        load_dotenv(parent_env_path)
+
 class EmotionAnalyzer:
     def __init__(self, api_key):
         self.api_key = api_key
@@ -167,12 +176,13 @@ def main():
     parser.add_argument('--prompt', '-p', type=str, 
                        default="Detect all people and analyze their emotions",
                        help='Custom prompt for emotion analysis')
+    parser.add_argument('--api-key', type=str, help='Gemini API key (overrides environment variable)')
     args = parser.parse_args()
 
-    load_dotenv()
-    api_key = os.getenv("GEMINI_API_KEY")
+    # Get API key from command line argument or environment variable
+    api_key = args.api_key or os.getenv("GEMINI_API_KEY")
     if not api_key:
-        raise ValueError("GEMINI_API_KEY environment variable not set")
+        raise ValueError("GEMINI_API_KEY environment variable not set. Please set it in .env file or use --api-key argument.")
     
     # Handle image path
     if not args.image:
